@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-wrapper {
+  max-width: 650px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 80px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  font-size: 32px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.field input,
+.field select,
+.field button {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 0 90px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #01d324;
+  box-shadow: 0 0 5px rgba(1, 211, 88, 0.5);
+}
+
+.field button {
+  background-color: #008006;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.field button:hover {
+  background-color: #01cb12;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-link span,
+.form-link a {
+  font-size: 14px;
+  color: #232836;
+}
+
+.form-link a {
+  color: #0171d3;
+  text-decoration: none;
+}
+
+.form-link a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 400px) {
+  .form-wrapper {
+    padding: 20px 10px;
+  }
+
+  header {
+    font-size: 26px;
+  }
+
+  .field input,
+  .field select,
+  .field button {
+    font-size: 14px;
+  }
+}

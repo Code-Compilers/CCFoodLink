@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../Css//Register.css"; // Import the updated CSS file for styling
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState(""); // New state for role
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [roleError, setRoleError] = useState(""); // New state for role validation
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const validate = () => {
     let isValid = true;
+
+    // Validate username
     if (!username) {
       setUsernameError("Username is required");
       isValid = false;
     } else {
       setUsernameError("");
     }
+
+    // Validate email
     if (!email) {
       setEmailError("Email is required");
       isValid = false;
@@ -28,6 +35,8 @@ const Register = () => {
     } else {
       setEmailError("");
     }
+
+    // Validate password
     if (!password) {
       setPasswordError("Password is required");
       isValid = false;
@@ -37,6 +46,15 @@ const Register = () => {
     } else {
       setPasswordError("");
     }
+
+    // Validate role
+    if (!role) {
+      setRoleError("Please select a role");
+      isValid = false;
+    } else {
+      setRoleError("");
+    }
+
     return isValid;
   };
 
@@ -44,7 +62,8 @@ const Register = () => {
     e.preventDefault();
 
     if (validate()) {
-      setMessage("Registration successful!"); //removed the backend call and just displays success.
+      setMessage("Registration successful!");
+      // Add backend logic here to include role in the registration
       setTimeout(() => {
         navigate("/login");
       }, 2000);
@@ -52,45 +71,74 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onBlur={() => validate()} // Validate on blur
-          />
-          {usernameError && <p className="error">{usernameError}</p>}
+    <div className="container">
+      <div className="form-wrapper">
+        <div className="form signup">
+          <header>Register</header>
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                onBlur={() => validate()}
+              />
+            </div>
+            {usernameError && <p className="error">{usernameError}</p>}
+
+            <div className="field">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => validate()}
+              />
+            </div>
+            {emailError && <p className="error">{emailError}</p>}
+
+            <div className="field">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={() => validate()}
+              />
+            </div>
+            {passwordError && <p className="error">{passwordError}</p>}
+
+            <div className="field">
+              <select
+                id="role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                onBlur={() => validate()}
+              >
+                <option value="">Select a role</option>
+                <option value="donor">Donor</option>
+                <option value="recipient">Recipient</option>
+              </select>
+            </div>
+            {roleError && <p className="error">{roleError}</p>}
+
+            <div className="field">
+              <button type="submit">Register</button>
+            </div>
+
+            {message && <p className="success-message">{message}</p>}
+          </form>
+
+          <div className="form-link">
+            <span>Already have an account? </span>
+            <a href="/login">Login</a>
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => validate()} // Validate on blur
-          />
-          {emailError && <p className="error">{emailError}</p>}
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onBlur={() => validate()} // Validate on blur
-          />
-          {passwordError && <p className="error">{passwordError}</p>}
-        </div>
-        <button type="submit">Register</button>
-        {message && <p>{message}</p>}
-      </form>
+      </div>
     </div>
   );
 };

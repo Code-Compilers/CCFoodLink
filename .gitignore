@@ -1,0 +1,19 @@
+# Ignore application properties
+src/main/resources/application.properties
+
+# Ignore compiled files and build artifacts
+/target/
+*.class
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.iml
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db

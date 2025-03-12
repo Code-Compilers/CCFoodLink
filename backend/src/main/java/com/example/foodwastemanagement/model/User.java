@@ -1,10 +1,6 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,8 +30,6 @@ public class User {
     }
 
     // Getters and Setters
-
-
     public Long getUserId() {
         return userId;
     }

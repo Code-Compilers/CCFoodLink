@@ -1,19 +1,63 @@
-# Ignore application properties
-src/main/resources/application.properties
+ # Compiled output
+ /target
+ /build
 
-# Ignore compiled files and build artifacts
-/target/
-*.class
 
-# Ignore IDE-specific files
-.idea/
-.vscode/
-*.iml
+ # IntelliJ IDEA
+ .idea/
+ *.iml
+ *.iws
+ *.ipr
 
-# Ignore logs
-logs/
-*.log
 
-# Ignore system files
-.DS_Store
-Thumbs.db
+ # Eclipse
+ .classpath
+ .project
+ .settings/
+
+
+ # NetBeans
+ /nbproject/private/
+ /build/
+ /dist/
+ /javadoc/
+
+
+ # VS Code
+ .vscode/
+
+
+ # Package Files #
+ *.jar
+ *.war
+ *.ear
+
+
+ # Logs and temporary files
+ *.log
+ *.tmp
+ /tmp/
+ /log/
+
+
+ # OS generated files #
+ .DS_Store
+ Thumbs.db
+
+
+ # Maven specific
+ /mvnw
+ /mvnw.cmd
+
+
+ # Gradle specific
+ /.gradle
+ /build/
+
+
+ # Ignore application properties
+ src/main/resources/application.properties
+
+
+ # Environment files
+ .env

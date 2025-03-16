@@ -68,4 +68,4 @@ const Donation = () => {
   );
 };
 
-export default DonationForm;
+export default Donation;

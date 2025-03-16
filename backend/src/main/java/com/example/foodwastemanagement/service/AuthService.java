@@ -1,6 +1,5 @@
 package com.example.foodwastemanagement.service;
 
-
 import com.example.foodwastemanagement.dto.AuthRequest;
 import com.example.foodwastemanagement.dto.AuthResponse;
 import com.example.foodwastemanagement.model.User;

@@ -12,8 +12,6 @@ public class AuthRequest {
     }
 
     //setters and getters
-
-
     public String getEmail() {
         return email;
     }

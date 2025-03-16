@@ -1,7 +1,5 @@
 package com.example.foodwastemanagement.controller;
 
-
-
 import com.example.foodwastemanagement.service.AuthService;
 import com.example.foodwastemanagement.dto.AuthRequest;
 import com.example.foodwastemanagement.dto.AuthResponse;
@@ -27,5 +25,4 @@ public class AuthController {
     public AuthResponse login(@RequestBody AuthRequest request) {
         return authService.login(request);
     }
-
 }

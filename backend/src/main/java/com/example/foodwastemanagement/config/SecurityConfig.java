@@ -1,6 +1,5 @@
 package com.example.foodwastemanagement.config;
 
-
 import com.example.foodwastemanagement.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

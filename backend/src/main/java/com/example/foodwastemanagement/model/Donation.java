@@ -2,8 +2,6 @@ package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -32,8 +30,6 @@ public class Donation {
     private LocalDateTime donationDate = LocalDateTime.now();
 
     // Getters and Setters
-
-
     public Long getDonationId() {
         return donationId;
     }

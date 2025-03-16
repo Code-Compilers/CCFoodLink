@@ -1,7 +1,6 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,8 +28,6 @@ public class DonationLog {
     }
 
     // Getters and Setters
-
-
     public Long getLogId() {
         return logId;
     }

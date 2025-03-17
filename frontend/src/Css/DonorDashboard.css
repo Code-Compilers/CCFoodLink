@@ -1,0 +1,25 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.dashboard-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.dashboard-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-container li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.dashboard-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+}

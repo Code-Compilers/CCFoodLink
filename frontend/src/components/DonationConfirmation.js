@@ -11,6 +11,10 @@ const DonationConfirmation = () => {
     navigate('/');
   };
 
+  const handleViewDashboard = () => {
+    navigate('/donor-dashboard');
+  };
+
   return (
     <div className="confirmation-container">
       <h1>Thank You for Your Donation!</h1>
@@ -26,6 +30,7 @@ const DonationConfirmation = () => {
         <li>Donation Date: {date}</li>
       </ul>
       <button onClick={handleBackToHome}>Back to Home</button>
+      <button onClick={handleViewDashboard}>View Dashboard</button>
     </div>
   );
 };

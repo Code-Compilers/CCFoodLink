@@ -61,3 +61,5 @@
 
  # Environment files
  .env
+
+.fake

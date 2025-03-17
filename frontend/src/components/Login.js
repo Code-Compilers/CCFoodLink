@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Css/Register.css"; // Import CSS for styling
-import "./Register.js"
 import { Link } from "react-router-dom";
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -41,7 +39,7 @@ const Login = () => {
 
     if (validate()) {
       try {
-        const response = await fetch("http://localhost:3000/api/login", {
+        const response = await fetch("http://localhost:8081/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -53,6 +51,7 @@ const Login = () => {
 
         if (response.ok) {
           setMessage("Login successful!");
+          localStorage.setItem("token", data.token); // Store the JWT token
           setTimeout(() => {
             navigate("/dashboard");
           }, 2000);
@@ -104,7 +103,7 @@ const Login = () => {
 
           <div className="form-link">
             <span>Don't have an account? </span>
-            <a href="/register">Register</a>
+            <Link to="/register">Register</Link>
           </div>
         </div>
       </div>

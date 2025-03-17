@@ -1,0 +1,151 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  background-color: #f5f7fa;
+  padding: 80px 0;
+}
+
+.hero-title {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  color: #5d6778;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #1976d2;
+}
+
+.how-it-works {
+  background-color: white;
+}
+
+.how-card {
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.how-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 60px !important;
+  color: #1976d2;
+  margin-bottom: 20px;
+}
+
+.impact-section {
+  background-color: #f5f7fa;
+}
+
+.impact-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.impact-stats {
+  padding: 20px;
+}
+
+.stat-number {
+  color: #1976d2;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.testimonials-section {
+  background-color: white;
+}
+
+.testimonial-card {
+  height: 100%;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+  font-style: italic;
+  position: relative;
+  padding: 10px 0;
+}
+
+.testimonial-text::before {
+  content: '"';
+  font-size: 60px;
+  color: #e0e0e0;
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  z-index: 0;
+}
+
+.testimonial-author {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-section {
+  background-color: #f5f7fa;
+}
+
+.cta-card {
+  background-color: #1976d2;
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button {
+  padding: 12px 30px !important;
+  font-weight: 600 !important;
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 60px 0 30px;
+  margin-top: auto;
+}

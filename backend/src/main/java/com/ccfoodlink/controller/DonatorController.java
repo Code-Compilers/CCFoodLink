@@ -20,9 +20,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/donatee")
-@PreAuthorize("hasRole('DONATEE')")
-public class DonateeController {
+@RequestMapping("/api/donator")
+@PreAuthorize("hasRole('DONATOR')")
+public class DonatorController {
     
     @Autowired
     private DonationRepository donationRepository;
@@ -33,7 +33,7 @@ public class DonateeController {
     @Autowired
     private UserRepository userRepository;
 
-    // Get donatee profile
+    // Get donator profile
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() {
         UserDetailsImpl userDetails = getCurrentUser();
@@ -42,57 +42,61 @@ public class DonateeController {
         return ResponseEntity.ok(user);
     }
 
-    // Get all donation requests made by the donatee
-    @GetMapping("/requests")
-    public List<DonationRequest> getRequests() {
-        UserDetailsImpl userDetails = getCurrentUser();
-        return donationRequestRepository.findByDonateeIdOrderByCreatedAtDesc(userDetails.getId());
-    }
-    
-    // Get all donations received by the donatee
+    // Get all donations made by the donator
     @GetMapping("/donations")
     public List<Donation> getDonations() {
         UserDetailsImpl userDetails = getCurrentUser();
-        return donationRepository.findByDonateeIdOrderByCreatedAtDesc(userDetails.getId());
+        return donationRepository.findByDonatorIdOrderByCreatedAtDesc(userDetails.getId());
     }
     
-    // Get available donations
-    @GetMapping("/available-donations")
-    public List<Donation> getAvailableDonations() {
-        return donationRepository.findByStatusOrderByCreatedAtDesc("AVAILABLE");
+    // Get all pending donation requests
+    @GetMapping("/requests")
+    public List<DonationRequest> getRequests() {
+        return donationRequestRepository.findByStatusOrderByCreatedAtDesc("PENDING");
     }
     
-    // Create a new donation request
-    @PostMapping("/request")
-    public ResponseEntity<?> createRequest(@Valid @RequestBody DonationRequest request) {
+    // Create a new donation
+    @PostMapping("/donate")
+    public ResponseEntity<?> createDonation(@Valid @RequestBody Donation donation) {
         UserDetailsImpl userDetails = getCurrentUser();
-        User donatee = userRepository.findById(userDetails.getId())
+        User donator = userRepository.findById(userDetails.getId())
             .orElseThrow(() -> new ResourceNotFoundException("User", "id", userDetails.getId()));
         
-        request.setDonatee(donatee);
-        request.setStatus("PENDING");
+        donation.setDonator(donator);
+        donation.setStatus("AVAILABLE");
         
-        DonationRequest savedRequest = donationRequestRepository.save(request);
-        return ResponseEntity.ok(savedRequest);
+        Donation savedDonation = donationRepository.save(donation);
+        return ResponseEntity.ok(savedDonation);
     }
     
-    // Accept an available donation
-    @PostMapping("/accept-donation/{donationId}")
-    public ResponseEntity<?> acceptDonation(@PathVariable Long donationId) {
+    // Accept a donation request
+    @PostMapping("/accept-request/{requestId}")
+    public ResponseEntity<?> acceptRequest(@PathVariable Long requestId) {
         UserDetailsImpl userDetails = getCurrentUser();
-        User donatee = userRepository.findById(userDetails.getId())
+        User donator = userRepository.findById(userDetails.getId())
             .orElseThrow(() -> new ResourceNotFoundException("User", "id", userDetails.getId()));
             
-        Donation donation = donationRepository.findById(donationId)
-            .orElseThrow(() -> new ResourceNotFoundException("Donation", "id", donationId));
+        DonationRequest request = donationRequestRepository.findById(requestId)
+            .orElseThrow(() -> new ResourceNotFoundException("Request", "id", requestId));
             
-        if (!donation.getStatus().equals("AVAILABLE")) {
-            return ResponseEntity.badRequest().body("This donation is no longer available");
+        if (!request.getStatus().equals("PENDING")) {
+            return ResponseEntity.badRequest().body("This request is no longer pending");
         }
         
-        donation.setDonatee(donatee);
+        // Create a donation based on the request
+        Donation donation = new Donation();
+        donation.setItemName(request.getItemName());
+        donation.setDescription(request.getDescription());
+        donation.setDonator(donator);
+        donation.setDonatee(request.getDonatee());
         donation.setStatus("ACCEPTED");
+        donation.setDeliveryMethod("DELIVERY"); // Default, can be changed
         
+        // Update the request status
+        request.setStatus("ACCEPTED");
+        donationRequestRepository.save(request);
+        
+        // Save the new donation
         Donation savedDonation = donationRepository.save(donation);
         return ResponseEntity.ok(savedDonation);
     }

@@ -1,116 +1,123 @@
 package com.ccfoodlink.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "donation_requests")
 public class DonationRequest {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "item_name", nullable = false)
+    @NotBlank
+    @Size(max = 100)
     private String itemName;
 
-    @Column(nullable = false)
+    @Size(max = 50)
     private String quantity;
 
-    @Column
-    private String urgency;
+    @Size(max = 20)
+    private String urgency; // LOW, MEDIUM, HIGH
 
-    @Column(columnDefinition = "TEXT")
+    @Size(max = 500)
     private String description;
 
-    @Column(nullable = false)
-    private String status;
-    
-    @ManyToOne
-    @JoinColumn(name = "donatee_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "donatee_id")
     private User donatee;
-    
-    @CreationTimestamp
+
+    private String status; // PENDING, ACCEPTED, REJECTED, FULFILLED
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    // Default constructor
-    public DonationRequest() {
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 
-    // Constructor with fields
-    public DonationRequest(String itemName, String quantity, String urgency, String description) {
-        this.itemName = itemName;
-        this.quantity = quantity;
-        this.urgency = urgency;
-        this.description = description;
-        this.status = "PENDING";
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
     }
 
-    // Getters
+    // Getters and Setters
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getItemName() {
         return itemName;
     }
 
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public String getUrgency() {
-        return urgency;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public User getDonatee() {
-        return donatee;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    // Setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getQuantity() {
+        return quantity;
     }
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
+    public String getUrgency() {
+        return urgency;
+    }
+
     public void setUrgency(String urgency) {
         this.urgency = urgency;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public User getDonatee() {
+        return donatee;
     }
 
     public void setDonatee(User donatee) {
         this.donatee = donatee;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

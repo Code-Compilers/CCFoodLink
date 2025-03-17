@@ -1,0 +1,63 @@
+.dashboard-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.profile-card {
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  border-left: 4px solid #1976d2;
+}
+
+.profile-avatar {
+  background-color: #1976d2 !important;
+  width: 60px !important;
+  height: 60px !important;
+  font-size: 1.5rem !important;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.section-icon {
+  margin-right: 0.5rem;
+  color: #1976d2;
+}
+
+.donation-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.status-chip {
+  margin-bottom: 1rem;
+  float: right;
+}
+
+.view-details-button {
+  margin-top: 1rem;
+}
+
+.empty-message {
+  padding: 2rem;
+  color: #666;
+}
+
+.dialog-field {
+  margin-bottom: 1rem !important;
+}
+
+.details-divider {
+  margin: 1rem 0 !important;
+}

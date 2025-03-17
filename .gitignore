@@ -1,1 +1,29 @@
-‣杉潮敲愠灰楬慣楴湯瀠潲数瑲敩൳猊捲洯楡⽮敲潳牵散⽳灡汰捩瑡潩⹮牰灯牥楴獥਍਍‣杉潮敲挠浯楰敬⁤楦敬⁳湡⁤畢汩⁤牡楴慦瑣൳⼊慴杲瑥യ⨊挮慬獳਍਍‣杉潮敲䤠䕄猭数楣楦⁣楦敬൳⸊摩慥യ⸊獶潣敤യ⨊椮汭਍਍‣杉潮敲氠杯൳氊杯⽳਍⸪潬൧ഊ⌊䤠湧牯⁥祳瑳浥映汩獥਍䐮当瑓牯൥吊畨扭⹳扤਍
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+bower_components/
+
+# Build output
+dist/
+build/
+
+# OS files (macOS, Windows, Linux)
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project

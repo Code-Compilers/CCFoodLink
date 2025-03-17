@@ -63,3 +63,9 @@
  .env
 
 .fake
+
+Package-lock.json
+/Node_modules
+ 
+ 3.2.  .gitignore  file for Node.js 
+ The following is an example of a  .gitignore  file for a Node.js project:

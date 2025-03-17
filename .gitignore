@@ -50,3 +50,6 @@
 
  # Environment files
  .env
+
+ /Package-lock.json
+ /node_modules

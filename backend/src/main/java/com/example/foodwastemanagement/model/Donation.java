@@ -23,8 +23,9 @@ public class Donation {
     @JoinColumn(name = "ngo_id", referencedColumnName = "ngoId")
     private NGO ngo;
 
+    private String address;
     private String foodCategory;
-    private LocalDate expiryDate;
+    //private LocalDate expiryDate;
     private String description;
 
     @Column(name = "donation_date", updatable = false)
@@ -65,13 +66,13 @@ public class Donation {
         this.foodCategory = foodCategory;
     }
 
-    public LocalDate getExpiryDate() {
-        return expiryDate;
-    }
+//    //public LocalDate getExpiryDate() {
+//        return expiryDate;
+//    }
 
-    public void setExpiryDate(LocalDate expiryDate) {
-        this.expiryDate = expiryDate;
-    }
+//    public void setExpiryDate(LocalDate expiryDate) {
+//        this.expiryDate = expiryDate;
+//    }
 
     public String getDescription() {
         return description;

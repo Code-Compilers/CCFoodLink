@@ -17,6 +17,7 @@
         </processorPath>
         <module name="foodwastemanagement" />
         <module name="backend" />
+        <module name="foodwastemanagement" />
       </profile>
     </annotationProcessing>
   </component>

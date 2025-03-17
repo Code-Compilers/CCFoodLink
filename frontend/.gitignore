@@ -1,5 +1,5 @@
 # Dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
 
@@ -25,3 +25,9 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Ignore package-lock.json
+package-lock.json
+
+# Backend target directory
+backend/target/

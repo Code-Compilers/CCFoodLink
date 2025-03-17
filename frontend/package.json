@@ -1,22 +1,6 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "main": "index.js",
-  "scripts": {
-    "dev": "next dev",
-    "start": "next start",
-    "build": "next build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "next": "^15.2.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-=======
   "description": "Example project",
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +25,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
->>>>>>> Rebaone-Vilakazi
   }
 }

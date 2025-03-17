@@ -1,6 +1,5 @@
 package com.example.foodwastemanagement.dto;
 
-
 public class AuthRequest {
     private String email;
     private String password;

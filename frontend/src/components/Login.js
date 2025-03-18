@@ -71,6 +71,7 @@ const Login = () => {
           <header>Login</header>
           <form onSubmit={handleSubmit}>
             <div className="field">
+            <p>Email</p>
               <input
                 type="email"
                 id="email"
@@ -83,6 +84,7 @@ const Login = () => {
             {emailError && <p className="error">{emailError}</p>}
 
             <div className="field">
+              <p>Password</p>
               <input
                 type="password"
                 id="password"

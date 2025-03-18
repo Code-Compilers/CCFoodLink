@@ -1,0 +1,55 @@
+ # Compiled output
+ /target
+ /build
+
+ # IntelliJ IDEA
+ .idea/
+ *.iml
+ *.iws
+ *.ipr
+
+ # Eclipse
+ .classpath
+ .project
+ .settings/
+
+ # NetBeans
+ /nbproject/private/
+ /build/
+ /dist/
+ /javadoc/
+
+ # VS Code
+ .vscode/
+
+ # Package Files #
+ *.jar
+ *.war
+ *.ear
+
+ # Logs and temporary files
+ *.log
+ *.tmp
+ /tmp/
+ /log/
+
+ # OS generated files #
+ .DS_Store
+ Thumbs.db
+
+ # Maven specific
+ /mvnw
+ /mvnw.cmd
+
+ # Gradle specific
+ /.gradle
+ /build/
+
+ # Ignore application properties
+ src/main/resources/application.properties
+
+ # Environment files
+ .env
+
+ /Package-lock.json
+ /node_modules

@@ -58,15 +58,30 @@ const Register = () => {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validate()) {
-      setMessage("Registration successful!");
-      // Add backend logic here to include role in the registration
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
+      try {
+        const response = await fetch("http://localhost:8081/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password, role })
+        });
+        
+        const data = await response.text();
+
+        if (response.ok) {
+          setMessage("Registration successful! Redirecting to login...");
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+        } else {
+          setMessage(data || "Registration failed. Please try again.");
+        }
+      } catch (error) {
+        setMessage("An error occurred. Please try again later.");
+      }
     }
   };
 
@@ -135,7 +150,7 @@ const Register = () => {
 
           <div className="form-link">
             <span>Already have an account? </span>
-            <a href="/login">Login</a>
+            <Link to="/login">Login</Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-package com.example.donation.model;
+package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
 

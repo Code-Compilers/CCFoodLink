@@ -1,7 +1,7 @@
-package com.example.donation.controller;
+package com.example.foodwastemanagement.controller;
 
-import com.example.donation.model.Donation;
-import com.example.donation.repository.DonationRepository;
+import com.example.foodwastemanagement.model.Donation;
+import com.example.foodwastemanagement.repository.DonationRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

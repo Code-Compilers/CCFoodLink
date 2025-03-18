@@ -1,0 +1,102 @@
+.donatee-dashboard {
+  padding: 20px;
+  color: #333;
+}
+
+.user-profile-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4CAF50;
+}
+
+.user-details {
+  padding: 10px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.donation-history-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.donation-history-card .card-header {
+  background-color: #4CAF50;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+/* Modal styling */
+.modal-header {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.modal-header .btn-close {
+  color: white;
+  opacity: 1;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+.btn-primary:hover {
+  background-color: #0b7dda;
+  border-color: #0b7dda;
+}
+
+.btn-success {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.btn-success:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #757575;
+  border-color: #757575;
+}
+
+.btn-secondary:hover {
+  background-color: #616161;
+  border-color: #616161;
+}

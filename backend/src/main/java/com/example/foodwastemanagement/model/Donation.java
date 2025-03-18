@@ -1,6 +1,7 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Donation {
@@ -14,6 +15,10 @@ public class Donation {
     private String deliveryOption;
     private String physicalAddress;
     private String description;
+    private String status = "available"; // available, accepted, completed
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt = new Date();
 
     // Default constructor
     public Donation() {}
@@ -57,6 +62,14 @@ public class Donation {
         return description;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
     // Setters
     public void setId(Long id) {
         this.id = id;
@@ -84,5 +97,13 @@ public class Donation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -1,6 +1,6 @@
-package com.example.donation.repository;
+package com.example.foodwastemanagement.repository;
 
-import com.example.donation.model.Donation;
+import com.example.foodwastemanagement.model.Donation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

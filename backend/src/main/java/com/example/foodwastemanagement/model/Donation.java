@@ -1,7 +1,9 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Donation {
@@ -19,6 +21,12 @@ public class Donation {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt = new Date();
+    
+    @OneToMany(mappedBy = "donation", cascade = CascadeType.ALL)
+    private List<DonationLog> logs = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "donation", cascade = CascadeType.ALL)
+    private List<AcceptedDonation> acceptedDonations = new ArrayList<>();
 
     // Default constructor
     public Donation() {}
@@ -69,6 +77,14 @@ public class Donation {
     public Date getCreatedAt() {
         return createdAt;
     }
+    
+    public List<DonationLog> getLogs() {
+        return logs;
+    }
+    
+    public List<AcceptedDonation> getAcceptedDonations() {
+        return acceptedDonations;
+    }
 
     // Setters
     public void setId(Long id) {
@@ -105,5 +121,13 @@ public class Donation {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+    
+    public void setLogs(List<DonationLog> logs) {
+        this.logs = logs;
+    }
+    
+    public void setAcceptedDonations(List<AcceptedDonation> acceptedDonations) {
+        this.acceptedDonations = acceptedDonations;
     }
 }

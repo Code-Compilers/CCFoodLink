@@ -1,6 +1,8 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Donatee {
@@ -9,12 +11,21 @@ public class Donatee {
     private Long id;
 
     private String name;
+    
+    @Column(unique = true)
     private String email;
+    
     private String password;
     private String phone;
     private String address;
     private String organization;
     private String role = "donatee";
+    
+    @OneToMany(mappedBy = "donatee", cascade = CascadeType.ALL)
+    private List<DonationRequest> donationRequests = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "donatee", cascade = CascadeType.ALL)
+    private List<AcceptedDonation> acceptedDonations = new ArrayList<>();
 
     // Default constructor
     public Donatee() {}
@@ -61,6 +72,14 @@ public class Donatee {
     public String getRole() {
         return role;
     }
+    
+    public List<DonationRequest> getDonationRequests() {
+        return donationRequests;
+    }
+    
+    public List<AcceptedDonation> getAcceptedDonations() {
+        return acceptedDonations;
+    }
 
     // Setters
     public void setId(Long id) {
@@ -93,5 +112,13 @@ public class Donatee {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    
+    public void setDonationRequests(List<DonationRequest> donationRequests) {
+        this.donationRequests = donationRequests;
+    }
+    
+    public void setAcceptedDonations(List<AcceptedDonation> acceptedDonations) {
+        this.acceptedDonations = acceptedDonations;
     }
 }

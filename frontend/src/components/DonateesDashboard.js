@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Container, Row, Col, Card, Button, Modal, Form, Table, Badge } from "react-bootstrap";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "../Css/DonateesDashboard.css";
+import "../styles/DonateesDashboard.css";
 
 const DonateesDashboard = () => {
   // State for user data
@@ -31,32 +27,51 @@ const DonateesDashboard = () => {
     urgency: "medium",
     description: ""
   });
+  
+  // State for notifications
+  const [notification, setNotification] = useState({ show: false, message: "", type: "" });
 
   // Fetch data on component mount
   useEffect(() => {
     fetchAcceptedDonations();
   }, []);
 
+  // Show notification
+  const showNotification = (message, type = "success") => {
+    setNotification({ show: true, message, type });
+    setTimeout(() => {
+      setNotification({ show: false, message: "", type: "" });
+    }, 3000);
+  };
+
   // Fetch accepted donations
   const fetchAcceptedDonations = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/accepted-donations/donatee/${user.id}`);
-      setAcceptedDonations(response.data);
+      const response = await fetch(`http://localhost:8081/accepted-donations/donatee/${user.id}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch donation history");
+      }
+      const data = await response.json();
+      setAcceptedDonations(data);
     } catch (error) {
       console.error("Error fetching accepted donations:", error);
-      toast.error("Failed to load donation history");
+      showNotification("Failed to load donation history", "error");
     }
   };
 
   // Fetch available donations
   const fetchAvailableDonations = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/donations/available");
-      setAvailableDonations(response.data);
+      const response = await fetch("http://localhost:8081/donations/available");
+      if (!response.ok) {
+        throw new Error("Failed to fetch available donations");
+      }
+      const data = await response.json();
+      setAvailableDonations(data);
       setShowAvailableDonations(true);
     } catch (error) {
       console.error("Error fetching available donations:", error);
-      toast.error("Failed to load available donations");
+      showNotification("Failed to load available donations", "error");
     }
   };
 
@@ -73,8 +88,19 @@ const DonateesDashboard = () => {
   const handleRequestSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/donatees/${user.id}/requests`, requestForm);
-      toast.success("Donation request submitted successfully!");
+      const response = await fetch(`http://localhost:8081/donatees/${user.id}/requests`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestForm),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to submit request");
+      }
+      
+      showNotification("Donation request submitted successfully!");
       setShowRequestForm(false);
       setRequestForm({
         itemName: "",
@@ -84,257 +110,253 @@ const DonateesDashboard = () => {
       });
     } catch (error) {
       console.error("Error submitting request:", error);
-      toast.error("Failed to submit request");
+      showNotification("Failed to submit request", "error");
     }
   };
 
   // Accept a donation
   const handleAcceptDonation = async (donationId) => {
     try {
-      await axios.post(`http://localhost:8080/accepted-donations/accept?donationId=${donationId}&donateeId=${user.id}`);
-      toast.success("Donation accepted successfully!");
+      const response = await fetch(`http://localhost:8081/accepted-donations/accept?donationId=${donationId}&donateeId=${user.id}`, {
+        method: "POST",
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to accept donation");
+      }
+      
+      showNotification("Donation accepted successfully!");
       
       // Refresh data
       fetchAvailableDonations();
       fetchAcceptedDonations();
     } catch (error) {
       console.error("Error accepting donation:", error);
-      toast.error("Failed to accept donation");
+      showNotification("Failed to accept donation", "error");
     }
   };
 
-  // Get badge for urgency level
-  const getUrgencyBadge = (urgency) => {
-    switch (urgency) {
-      case "high":
-        return <Badge bg="danger">High</Badge>;
-      case "medium":
-        return <Badge bg="warning" text="dark">Medium</Badge>;
-      case "low":
-        return <Badge bg="success">Low</Badge>;
-      default:
-        return <Badge bg="secondary">Unknown</Badge>;
-    }
-  };
-
-  // Get badge for donation status
-  const getStatusBadge = (status) => {
+  // Get status class
+  const getStatusClass = (status) => {
     switch (status) {
+      case "high":
+      case "error":
+        return "status-high";
+      case "medium":
+      case "warning":
+        return "status-medium";
+      case "low":
+      case "success":
       case "accepted":
-        return <Badge bg="info">Accepted</Badge>;
+        return "status-low";
       case "completed":
-        return <Badge bg="success">Completed</Badge>;
+        return "status-completed";
       default:
-        return <Badge bg="secondary">Unknown</Badge>;
+        return "status-default";
     }
   };
 
   return (
-    <Container className="donatee-dashboard mt-4 mb-5">
-      <ToastContainer position="top-right" autoClose={3000} />
+    <div className="donatee-dashboard">
+      {/* Notification */}
+      {notification.show && (
+        <div className={`notification ${getStatusClass(notification.type)}`}>
+          {notification.message}
+        </div>
+      )}
       
       {/* User Profile Section */}
-      <Row className="mb-4">
-        <Col>
-          <Card className="user-profile-card">
-            <Card.Body>
-              <Card.Title className="text-center mb-4">Welcome, {user.name}</Card.Title>
-              <Row>
-                <Col md={4} className="text-center">
-                  <div className="profile-image-container">
-                    <img 
-                      src="https://via.placeholder.com/150" 
-                      alt="Profile" 
-                      className="profile-image"
-                    />
-                  </div>
-                </Col>
-                <Col md={8}>
-                  <div className="user-details">
-                    <p><strong>Email:</strong> {user.email}</p>
-                    <p><strong>Phone:</strong> {user.phone || "Not provided"}</p>
-                    <p><strong>Address:</strong> {user.address || "Not provided"}</p>
-                    <p><strong>Organization:</strong> {user.organization || "Not provided"}</p>
-                  </div>
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <div className="profile-card">
+        <h2 className="profile-title">Welcome, {user.name}</h2>
+        <div className="profile-content">
+          <div className="profile-image-container">
+            <img 
+              src="https://via.placeholder.com/150" 
+              alt="Profile" 
+              className="profile-image"
+            />
+          </div>
+          <div className="user-details">
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>Phone:</strong> {user.phone || "Not provided"}</p>
+            <p><strong>Address:</strong> {user.address || "Not provided"}</p>
+            <p><strong>Organization:</strong> {user.organization || "Not provided"}</p>
+          </div>
+        </div>
+      </div>
 
       {/* Action Buttons */}
-      <Row className="mb-4">
-        <Col className="d-flex justify-content-center gap-3">
-          <Button 
-            variant="primary" 
-            className="action-button"
-            onClick={() => setShowRequestForm(true)}
-          >
-            Request Donation
-          </Button>
-          <Button 
-            variant="success" 
-            className="action-button"
-            onClick={fetchAvailableDonations}
-          >
-            View Available Donations
-          </Button>
-        </Col>
-      </Row>
+      <div className="action-buttons">
+        <button 
+          className="btn btn-primary"
+          onClick={() => setShowRequestForm(true)}
+        >
+          Request Donation
+        </button>
+        <button 
+          className="btn btn-success"
+          onClick={fetchAvailableDonations}
+        >
+          View Available Donations
+        </button>
+      </div>
 
       {/* Donation History Section */}
-      <Row>
-        <Col>
-          <Card className="donation-history-card">
-            <Card.Header className="text-center">
-              <h4>Donation History</h4>
-            </Card.Header>
-            <Card.Body>
-              {acceptedDonations.length === 0 ? (
-                <p className="text-center">No donation history yet.</p>
-              ) : (
-                <Table striped bordered hover responsive>
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Donor</th>
-                      <th>Food Category</th>
-                      <th>Date Accepted</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {acceptedDonations.map((donation) => (
-                      <tr key={donation.id}>
-                        <td>{donation.donation.description}</td>
-                        <td>{donation.donation.donorName}</td>
-                        <td>{donation.donation.foodCategory}</td>
-                        <td>{new Date(donation.acceptedDate).toLocaleDateString()}</td>
-                        <td>{getStatusBadge(donation.status)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              )}
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      {/* Request Donation Modal */}
-      <Modal show={showRequestForm} onHide={() => setShowRequestForm(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request Donation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleRequestSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Item Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="itemName"
-                value={requestForm.itemName}
-                onChange={handleRequestFormChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control
-                type="text"
-                name="quantity"
-                value={requestForm.quantity}
-                onChange={handleRequestFormChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Urgency</Form.Label>
-              <Form.Select
-                name="urgency"
-                value={requestForm.urgency}
-                onChange={handleRequestFormChange}
-              >
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-              </Form.Select>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="description"
-                value={requestForm.description}
-                onChange={handleRequestFormChange}
-              />
-            </Form.Group>
-            <div className="d-flex justify-content-end">
-              <Button variant="secondary" className="me-2" onClick={() => setShowRequestForm(false)}>
-                Cancel
-              </Button>
-              <Button variant="primary" type="submit">
-                Submit Request
-              </Button>
-            </div>
-          </Form>
-        </Modal.Body>
-      </Modal>
-
-      {/* Available Donations Modal */}
-      <Modal 
-        show={showAvailableDonations} 
-        onHide={() => setShowAvailableDonations(false)}
-        size="lg"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Available Donations</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {availableDonations.length === 0 ? (
-            <p className="text-center">No available donations at the moment.</p>
+      <div className="history-card">
+        <div className="card-header">
+          <h3>Donation History</h3>
+        </div>
+        <div className="card-body">
+          {acceptedDonations.length === 0 ? (
+            <p className="text-center">No donation history yet.</p>
           ) : (
-            <Table striped bordered hover responsive>
+            <table className="data-table">
               <thead>
                 <tr>
+                  <th>Item</th>
                   <th>Donor</th>
                   <th>Food Category</th>
-                  <th>Delivery Option</th>
-                  <th>Description</th>
-                  <th>Action</th>
+                  <th>Date Accepted</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                {availableDonations.map((donation) => (
+                {acceptedDonations.map((donation) => (
                   <tr key={donation.id}>
-                    <td>{donation.donorName}</td>
-                    <td>{donation.foodCategory}</td>
-                    <td>{donation.deliveryOption}</td>
-                    <td>{donation.description}</td>
+                    <td>{donation.donation.description}</td>
+                    <td>{donation.donation.donorName}</td>
+                    <td>{donation.donation.foodCategory}</td>
+                    <td>{new Date(donation.acceptedDate).toLocaleDateString()}</td>
                     <td>
-                      <Button 
-                        variant="success" 
-                        size="sm"
-                        onClick={() => handleAcceptDonation(donation.id)}
-                      >
-                        Accept
-                      </Button>
+                      <span className={`status-badge ${getStatusClass(donation.status)}`}>
+                        {donation.status}
+                      </span>
                     </td>
                   </tr>
                 ))}
               </tbody>
-            </Table>
+            </table>
           )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowAvailableDonations(false)}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Container>
+        </div>
+      </div>
+
+      {/* Request Donation Modal */}
+      {showRequestForm && (
+        <div className="modal-overlay">
+          <div className="modal-container">
+            <div className="modal-header">
+              <h3>Request Donation</h3>
+              <button className="close-btn" onClick={() => setShowRequestForm(false)}>×</button>
+            </div>
+            <div className="modal-body">
+              <form onSubmit={handleRequestSubmit}>
+                <div className="form-group">
+                  <label>Item Name</label>
+                  <input
+                    type="text"
+                    name="itemName"
+                    value={requestForm.itemName}
+                    onChange={handleRequestFormChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Quantity</label>
+                  <input
+                    type="text"
+                    name="quantity"
+                    value={requestForm.quantity}
+                    onChange={handleRequestFormChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Urgency</label>
+                  <select
+                    name="urgency"
+                    value={requestForm.urgency}
+                    onChange={handleRequestFormChange}
+                  >
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Description</label>
+                  <textarea
+                    rows={3}
+                    name="description"
+                    value={requestForm.description}
+                    onChange={handleRequestFormChange}
+                  ></textarea>
+                </div>
+                <div className="form-actions">
+                  <button type="button" className="btn btn-secondary" onClick={() => setShowRequestForm(false)}>
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Submit Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Available Donations Modal */}
+      {showAvailableDonations && (
+        <div className="modal-overlay">
+          <div className="modal-container modal-lg">
+            <div className="modal-header">
+              <h3>Available Donations</h3>
+              <button className="close-btn" onClick={() => setShowAvailableDonations(false)}>×</button>
+            </div>
+            <div className="modal-body">
+              {availableDonations.length === 0 ? (
+                <p className="text-center">No available donations at the moment.</p>
+              ) : (
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Donor</th>
+                      <th>Food Category</th>
+                      <th>Delivery Option</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {availableDonations.map((donation) => (
+                      <tr key={donation.id}>
+                        <td>{donation.donorName}</td>
+                        <td>{donation.foodCategory}</td>
+                        <td>{donation.deliveryOption}</td>
+                        <td>{donation.description}</td>
+                        <td>
+                          <button 
+                            className="btn btn-sm btn-success"
+                            onClick={() => handleAcceptDonation(donation.id)}
+                          >
+                            Accept
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+            <div className="modal-footer">
+              <button className="btn btn-secondary" onClick={() => setShowAvailableDonations(false)}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

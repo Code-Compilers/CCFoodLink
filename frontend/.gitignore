@@ -1,32 +1,39 @@
 # Node modules
 node_modules/
-.next/
-.idea/
-
-
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Dependency directories
-bower_components/
 
 # Build output
+.next/
 dist/
 build/
 
-# OS files (macOS, Windows, Linux)
-.DS_Store
-Thumbs.db
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Log files
+*.log
 
 # Environment files
 .env
 .env.local
 .env.*.local
 
-# IDE files
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Cache files
+frontend/node_modules/.cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# npm package lock (if not using npm)
+# package-lock.json
+
+# Yarn lock (if using yarn)
+# yarn.lock

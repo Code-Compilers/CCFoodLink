@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long donationId;
 
     private String donorName;
     private String contactDetails;
@@ -30,7 +30,7 @@ public class Donation {
 
     // Getters
     public Long getId() {
-        return id;
+        return donationId;
     }
 
     public String getDonorName() {
@@ -59,7 +59,7 @@ public class Donation {
 
     // Setters
     public void setId(Long id) {
-        this.id = id;
+        this.donationId = id;
     }
 
     public void setDonorName(String donorName) {

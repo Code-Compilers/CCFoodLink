@@ -13,22 +13,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 800px;
 }
 
 .form-wrapper {
-  max-width: 650px;
+  max-width: 800px; 
   width: 100%;
   background-color: #ffffff;
   padding: 80px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.medium-card {
+  max-width: 700px; /* Increased width */
 }
 
 header {
@@ -42,13 +47,6 @@ header {
 form {
   margin-top: 20px;
 }
-
-.field {
-  position: relative;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
 .field input,
 .field select,
 .field button {
@@ -57,7 +55,7 @@ form {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  padding: 0 90px;
+  padding: 0 20px;
   outline: none;
 }
 

@@ -71,7 +71,7 @@ const Login = () => {
           <header>Login</header>
           <form onSubmit={handleSubmit}>
             <div className="field">
-            <p>Email</p>
+              <p>Email</p>
               <input
                 type="email"
                 id="email"

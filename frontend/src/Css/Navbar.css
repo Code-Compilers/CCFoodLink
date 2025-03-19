@@ -1,9 +1,6 @@
 /* Navbar.css */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/* src/Css/Navbar.css */
-
-/* General Navbar Styles */
 .navbar {
   background-color: green; /* Dark background */
   padding: 10px 20px;
@@ -12,7 +9,6 @@
   left: 0;
   width: 100%;
   z-index: 1000; /* Keeps navbar above other content */
-
 }
 
 .navbar-container {

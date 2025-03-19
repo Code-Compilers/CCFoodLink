@@ -67,9 +67,9 @@ const Register = () => {
         const response = await fetch("http://localhost:8081/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, email, password, role })
+          body: JSON.stringify({ username, email, password, role }),
         });
-        
+
         const data = await response.text();
 
         if (response.ok) {
@@ -88,7 +88,7 @@ const Register = () => {
 
   return (
     <div className="container">
-      <div className="form-wrapper">
+      <div className="form-wrapper medium-card">
         <div className="form signup">
           <header>Register</header>
           <form onSubmit={handleSubmit}>

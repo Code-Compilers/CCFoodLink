@@ -21,6 +21,9 @@ public class AuthService {
     }
 
     public String register(User user) {
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            return "Email already registered!";
+        }
         user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
         userRepository.save(user);
         return "User registered successfully!";
@@ -31,11 +34,13 @@ public class AuthService {
         System.out.println("AuthRequest: " + request.getPassword());
 
 
-        if (request.getPassword() == null){
-            throw new IllegalArgumentException("Password cannot be null");
+        if (request.getPassword() == null || request.getPassword().isEmpty()){
+            throw new IllegalArgumentException("Password cannot be null or empty");
         }
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        System.out.println("Stored Hash: " + user.getPasswordHash());
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPasswordHash())) {
             throw new RuntimeException("Invalid credentials");

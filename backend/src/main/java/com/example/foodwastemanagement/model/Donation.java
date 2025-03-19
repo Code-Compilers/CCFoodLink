@@ -1,6 +1,9 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Donation {
@@ -14,6 +17,16 @@ public class Donation {
     private String deliveryOption;
     private String physicalAddress;
     private String description;
+    private String status = "available"; // available, accepted, completed
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt = new Date();
+    
+    @OneToMany(mappedBy = "donation", cascade = CascadeType.ALL)
+    private List<DonationLog> logs = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "donation", cascade = CascadeType.ALL)
+    private List<AcceptedDonation> acceptedDonations = new ArrayList<>();
 
     // Default constructor
     public Donation() {}
@@ -57,6 +70,22 @@ public class Donation {
         return description;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+    
+    public List<DonationLog> getLogs() {
+        return logs;
+    }
+    
+    public List<AcceptedDonation> getAcceptedDonations() {
+        return acceptedDonations;
+    }
+
     // Setters
     public void setId(Long id) {
         this.donationId = id;
@@ -84,5 +113,21 @@ public class Donation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public void setLogs(List<DonationLog> logs) {
+        this.logs = logs;
+    }
+    
+    public void setAcceptedDonations(List<AcceptedDonation> acceptedDonations) {
+        this.acceptedDonations = acceptedDonations;
     }
 }

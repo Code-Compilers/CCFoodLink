@@ -1,7 +1,6 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,11 +9,11 @@ public class DonationLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long logId;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "donation_id", referencedColumnName = "donationId")
-    private com.example.foodwastemanagement.model.Donation donation;
+    @JoinColumn(name = "donation_id")
+    private Donation donation;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -29,21 +28,19 @@ public class DonationLog {
     }
 
     // Getters and Setters
-
-
-    public Long getLogId() {
-        return logId;
+    public Long getId() {
+        return id;
     }
 
-    public void setLogId(Long logId) {
-        this.logId = logId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public com.example.foodwastemanagement.model.Donation getDonation() {
+    public Donation getDonation() {
         return donation;
     }
 
-    public void setDonation(com.example.foodwastemanagement.model.Donation donation) {
+    public void setDonation(Donation donation) {
         this.donation = donation;
     }
 

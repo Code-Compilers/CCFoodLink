@@ -2,6 +2,8 @@ package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -9,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     private String name;
 
@@ -24,18 +26,21 @@ public class User {
 
     @Column(name = "registration_date", updatable = false)
     private LocalDateTime registrationDate = LocalDateTime.now();
+    
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<NGO> ngos = new ArrayList<>();
 
     public enum Role {
         DONOR, RECIPIENT
     }
 
     // Getters and Setters
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -76,5 +81,13 @@ public class User {
 
     public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
+    }
+    
+    public List<NGO> getNgos() {
+        return ngos;
+    }
+
+    public void setNgos(List<NGO> ngos) {
+        this.ngos = ngos;
     }
 }

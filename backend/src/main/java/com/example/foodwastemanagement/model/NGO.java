@@ -10,33 +10,31 @@ public class NGO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ngoId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private com.example.foodwastemanagement.model.User user;
+    private User user;
 
     private String address;
     private String contactNumber;
     private String description;
 
     // Getters and Setters
-
-
-    public Long getNgoId() {
-        return ngoId;
+    public Long getId() {
+        return id;
     }
 
-    public void setNgoId(Long ngoId) {
-        this.ngoId = ngoId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public com.example.foodwastemanagement.model.User getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(com.example.foodwastemanagement.model.User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

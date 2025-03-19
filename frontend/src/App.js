@@ -1,25 +1,29 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import Register from './components/Register';
-import DonationForm from './components/DonationForm';
-import DonationConfirmation from './components/DonationConfirmation';
-import PickupSchedule from './components/PickupSchedule';
+  import React from "react";
+  import { Routes, Route } from "react-router-dom";
+  import HomePage from "./components/HomePage";
+  import Dashboard from "./components/Dashboard";
+  import DonateesDashboard from "./components/DonateesDashboard";
+  import Login from "./components/Login";
+  import Donations from "./components/Donation";
+  import Register from "./components/Register";
+  import Navbar from "./components/Navbar";
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/donation-form" component={DonationForm} />
-        <Route path="/donation-confirmation" component={DonationConfirmation} />
-        <Route path="/pickup-schedule" component={PickupSchedule} />
-      </Switch>
-    </Router>
-  );
-}
+  function App() {
+    return (
+      <div>
+        <Navbar />
+     
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="donatee-dashboard" element={<DonateesDashboard />} />
+          <Route path="donation" element={<Donations />} />
+          {/* You can add more routes for About, Login, etc. */}
+        </Routes>
+      </div>
+    );
+  }
 
-export default App;
+  export default App;

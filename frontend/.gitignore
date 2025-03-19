@@ -1,7 +1,8 @@
-# Dependencies
-/node_modules
+# Node modules
+node_modules/
 /.pnp
 .pnp.js
+node_modules
 
 # Next.js
 /.next/
@@ -12,16 +13,10 @@
 
 # Misc
 .DS_Store
-*.pem
+Thumbs.db
 
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# npm package lock (if not using npm)
+# package-lock.json
 
-# Local env files
-.env*.local
-.env
-
-# Vercel
-.vercel
+# Yarn lock (if using yarn)
+# yarn.lock

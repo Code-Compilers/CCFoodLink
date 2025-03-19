@@ -1,4 +1,4 @@
-# 🌍 **Food Waste & Donation Platform** 🍞
+# 🌍 **Food & Donation Platform** 🍞
 
 A scalable, secure platform connecting food donors (restaurants, supermarkets) with recipients (NGOs, individuals) to facilitate surplus food donations. This platform aims to reduce food insecurity and waste in South Africa by enabling real-time donations, waste tracking, environmental impact calculations, and educational resources.
 

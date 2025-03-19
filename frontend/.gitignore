@@ -1,5 +1,8 @@
+ # Compiled output
+ /target
+ /build
 # Dependencies
-node_modules/
+node_modules
 /.pnp
 .pnp.js
 .idea/misc.xml
@@ -10,24 +13,54 @@ node_modules/
 # Production
 /build
 
-# Misc
-.DS_Store
-*.pem
+ # IntelliJ IDEA
+ .idea/
+ *.iml
+ *.iws
+ *.ipr
 
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+ # Eclipse
+ .classpath
+ .project
+ .settings/
 
-# Local env files
-.env*.local
-.env
+ # NetBeans
+ /nbproject/private/
+ /build/
+ /dist/
+ /javadoc/
 
-# Vercel
-.vercel
+ # VS Code
+ .vscode/
 
-# Ignore package-lock.json
-package-lock.json
+ # Package Files #
+ *.jar
+ *.war
+ *.ear
 
-# Backend target directory
-backend/target/
+ # Logs and temporary files
+ *.log
+ *.tmp
+ /tmp/
+ /log/
+
+ # OS generated files #
+ .DS_Store
+ Thumbs.db
+
+ # Maven specific
+ /mvnw
+ /mvnw.cmd
+
+ # Gradle specific
+ /.gradle
+ /build/
+
+ # Ignore application properties
+ src/main/resources/application.properties
+
+ # Environment files
+ .env
+
+ /Package-lock.json
+ /node_modules

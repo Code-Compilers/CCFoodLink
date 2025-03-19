@@ -1,6 +1,5 @@
 package com.example.foodwastemanagement.dto;
 
-
 public class AuthRequest {
     private String email;
     private String password;
@@ -12,8 +11,6 @@ public class AuthRequest {
     }
 
     //setters and getters
-
-
     public String getEmail() {
         return email;
     }

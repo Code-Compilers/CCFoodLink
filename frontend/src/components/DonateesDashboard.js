@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/DonateesDashboard.css";
+import "../Css/DonateesDashboard.css";
 
 const DonateesDashboard = () => {
   // State for user data
@@ -9,27 +9,31 @@ const DonateesDashboard = () => {
     email: "john@example.com",
     phone: "123-456-7890",
     address: "123 Main St, City",
-    organization: "Food Rescue"
+    organization: "Food Rescue",
   });
-  
+
   // State for modals
   const [showRequestForm, setShowRequestForm] = useState(false);
   const [showAvailableDonations, setShowAvailableDonations] = useState(false);
-  
+
   // State for donations data
   const [availableDonations, setAvailableDonations] = useState([]);
   const [acceptedDonations, setAcceptedDonations] = useState([]);
-  
+
   // State for request form
   const [requestForm, setRequestForm] = useState({
     itemName: "",
     quantity: "",
     urgency: "medium",
-    description: ""
+    description: "",
   });
-  
+
   // State for notifications
-  const [notification, setNotification] = useState({ show: false, message: "", type: "" });
+  const [notification, setNotification] = useState({
+    show: false,
+    message: "",
+    type: "",
+  });
 
   // Fetch data on component mount
   useEffect(() => {
@@ -47,7 +51,9 @@ const DonateesDashboard = () => {
   // Fetch accepted donations
   const fetchAcceptedDonations = async () => {
     try {
-      const response = await fetch(`http://localhost:8081/accepted-donations/donatee/${user.id}`);
+      const response = await fetch(
+        `http://localhost:8081/accepted-donations/donatee/${user.id}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch donation history");
       }
@@ -80,7 +86,7 @@ const DonateesDashboard = () => {
     const { name, value } = e.target;
     setRequestForm({
       ...requestForm,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -88,25 +94,28 @@ const DonateesDashboard = () => {
   const handleRequestSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8081/donatees/${user.id}/requests`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestForm),
-      });
-      
+      const response = await fetch(
+        `http://localhost:8081/donatees/${user.id}/requests`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestForm),
+        }
+      );
+
       if (!response.ok) {
         throw new Error("Failed to submit request");
       }
-      
+
       showNotification("Donation request submitted successfully!");
       setShowRequestForm(false);
       setRequestForm({
         itemName: "",
         quantity: "",
         urgency: "medium",
-        description: ""
+        description: "",
       });
     } catch (error) {
       console.error("Error submitting request:", error);
@@ -117,16 +126,19 @@ const DonateesDashboard = () => {
   // Accept a donation
   const handleAcceptDonation = async (donationId) => {
     try {
-      const response = await fetch(`http://localhost:8081/accepted-donations/accept?donationId=${donationId}&donateeId=${user.id}`, {
-        method: "POST",
-      });
-      
+      const response = await fetch(
+        `http://localhost:8081/accepted-donations/accept?donationId=${donationId}&donateeId=${user.id}`,
+        {
+          method: "POST",
+        }
+      );
+
       if (!response.ok) {
         throw new Error("Failed to accept donation");
       }
-      
+
       showNotification("Donation accepted successfully!");
-      
+
       // Refresh data
       fetchAvailableDonations();
       fetchAcceptedDonations();
@@ -164,39 +176,45 @@ const DonateesDashboard = () => {
           {notification.message}
         </div>
       )}
-      
+
       {/* User Profile Section */}
       <div className="profile-card">
         <h2 className="profile-title">Welcome, {user.name}</h2>
         <div className="profile-content">
           <div className="profile-image-container">
-            <img 
-              src="https://via.placeholder.com/150" 
-              alt="Profile" 
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Profile"
               className="profile-image"
             />
           </div>
           <div className="user-details">
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Phone:</strong> {user.phone || "Not provided"}</p>
-            <p><strong>Address:</strong> {user.address || "Not provided"}</p>
-            <p><strong>Organization:</strong> {user.organization || "Not provided"}</p>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Phone:</strong> {user.phone || "Not provided"}
+            </p>
+            <p>
+              <strong>Address:</strong> {user.address || "Not provided"}
+            </p>
+            <p>
+              <strong>Organization:</strong>{" "}
+              {user.organization || "Not provided"}
+            </p>
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
       <div className="action-buttons">
-        <button 
+        <button
           className="btn btn-primary"
           onClick={() => setShowRequestForm(true)}
         >
           Request Donation
         </button>
-        <button 
-          className="btn btn-success"
-          onClick={fetchAvailableDonations}
-        >
+        <button className="btn btn-success" onClick={fetchAvailableDonations}>
           View Available Donations
         </button>
       </div>
@@ -226,9 +244,15 @@ const DonateesDashboard = () => {
                     <td>{donation.donation.description}</td>
                     <td>{donation.donation.donorName}</td>
                     <td>{donation.donation.foodCategory}</td>
-                    <td>{new Date(donation.acceptedDate).toLocaleDateString()}</td>
                     <td>
-                      <span className={`status-badge ${getStatusClass(donation.status)}`}>
+                      {new Date(donation.acceptedDate).toLocaleDateString()}
+                    </td>
+                    <td>
+                      <span
+                        className={`status-badge ${getStatusClass(
+                          donation.status
+                        )}`}
+                      >
                         {donation.status}
                       </span>
                     </td>
@@ -246,7 +270,12 @@ const DonateesDashboard = () => {
           <div className="modal-container">
             <div className="modal-header">
               <h3>Request Donation</h3>
-              <button className="close-btn" onClick={() => setShowRequestForm(false)}>×</button>
+              <button
+                className="close-btn"
+                onClick={() => setShowRequestForm(false)}
+              >
+                ×
+              </button>
             </div>
             <div className="modal-body">
               <form onSubmit={handleRequestSubmit}>
@@ -292,7 +321,11 @@ const DonateesDashboard = () => {
                   ></textarea>
                 </div>
                 <div className="form-actions">
-                  <button type="button" className="btn btn-secondary" onClick={() => setShowRequestForm(false)}>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => setShowRequestForm(false)}
+                  >
                     Cancel
                   </button>
                   <button type="submit" className="btn btn-primary">
@@ -311,11 +344,18 @@ const DonateesDashboard = () => {
           <div className="modal-container modal-lg">
             <div className="modal-header">
               <h3>Available Donations</h3>
-              <button className="close-btn" onClick={() => setShowAvailableDonations(false)}>×</button>
+              <button
+                className="close-btn"
+                onClick={() => setShowAvailableDonations(false)}
+              >
+                ×
+              </button>
             </div>
             <div className="modal-body">
               {availableDonations.length === 0 ? (
-                <p className="text-center">No available donations at the moment.</p>
+                <p className="text-center">
+                  No available donations at the moment.
+                </p>
               ) : (
                 <table className="data-table">
                   <thead>
@@ -335,7 +375,7 @@ const DonateesDashboard = () => {
                         <td>{donation.deliveryOption}</td>
                         <td>{donation.description}</td>
                         <td>
-                          <button 
+                          <button
                             className="btn btn-sm btn-success"
                             onClick={() => handleAcceptDonation(donation.id)}
                           >
@@ -349,7 +389,10 @@ const DonateesDashboard = () => {
               )}
             </div>
             <div className="modal-footer">
-              <button className="btn btn-secondary" onClick={() => setShowAvailableDonations(false)}>
+              <button
+                className="btn btn-secondary"
+                onClick={() => setShowAvailableDonations(false)}
+              >
                 Close
               </button>
             </div>

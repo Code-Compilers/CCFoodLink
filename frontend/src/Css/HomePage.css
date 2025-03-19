@@ -1,73 +1,200 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/* src/Css/HomePage.css */
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Light background for the page */
-    background-image: ('/images/FoodBg.jpg');
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* src/Css/HomePage.css */
-
+/* Container for the entire homepage */
 .homepage {
-    position: relative;
-    height: 100vh; /* Full height of the viewport */
-    width: 100%; /* Full width of the viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds shadow for text readability */
+  height: 100vh; /* Full viewport height */
+  background-image:('/FoodBg.jpg'); /* Path to the background image */
+  background-size: cover; /* Ensures the background image covers the entire section */
+  background-position: center; /* Center the background image */
+  color: white; /* White text color for contrast */
+  padding: 0 20px; /* Add some padding */
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.donate-link {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.donate-link:hover {
+  background-color: #25913d;
+}
+
+/* About Section */
+.about-section {
+  background-color: #fff;
+  padding: 40px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+  /* Image Container Styling */
+  .images-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    justify-content: space-between;
+    margin-top: 40px;
   }
   
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire screen */
-    z-index: -1; /* Places the image behind the content */
-  }
-  
-  .content {
+  .image-box {
     text-align: center;
-    z-index: 1; /* Ensures the content appears above the image */
-    color: white;
-    padding: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional text shadow for better readability */
+    width: 30%;
   }
   
-  h1 {
-    font-size: 40px;
+  .image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-box p {
+    margin-top: 10px;
     font-weight: bold;
-    margin-bottom: 20px;
-    color:#333;
+    color: green;
   }
   
-  p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .donate-button {
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-    background-color: #333;
-    padding: 12px 30px;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .donate-button:hover {
-    background-color: #555;
-  }
-  
+
+/* How It Works Section */
+.how-it-works-section {
+  background-color: #e6f4e6;
+  padding: 40px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.how-it-works-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.how-it-works-section p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Get Involved Section */
+.get-involved-section {
+  background-color: #f4f4f4;
+  padding: 40px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.get-involved-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.get-involved-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.get-involved-section .cta-link {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.get-involved-section .cta-link:hover {
+  background-color: #25913d;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.footer p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

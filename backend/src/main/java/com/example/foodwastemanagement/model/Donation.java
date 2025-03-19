@@ -1,9 +1,18 @@
 package com.example.foodwastemanagement.model;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+=======
+<<<<<<< HEAD
+=======
+import org.hibernate.annotations.CreationTimestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+>>>>>>> Bokang
+>>>>>>> 01146cd8acf8a702ae68ab5e383d89dfb8d1eb5e
 
 @Entity
 public class Donation {
@@ -31,6 +40,7 @@ public class Donation {
     // Default constructor
     public Donation() {}
 
+<<<<<<< HEAD
     // Parameterized constructor
     public Donation(String donorName, String contactDetails, String foodCategory, String deliveryOption, String physicalAddress, String description) {
         this.donorName = donorName;
@@ -43,6 +53,10 @@ public class Donation {
 
     // Getters
     public Long getId() {
+=======
+    // Getters and Setters
+    public Long getDonationId() {
+>>>>>>> Bokang
         return donationId;
     }
 

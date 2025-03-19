@@ -28,8 +28,13 @@ public class DonationLog {
     }
 
     // Getters and Setters
+<<<<<<< HEAD
     public Long getId() {
         return id;
+=======
+    public Long getLogId() {
+        return logId;
+>>>>>>> 01146cd8acf8a702ae68ab5e383d89dfb8d1eb5e
     }
 
     public void setId(Long id) {

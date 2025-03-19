@@ -1,0 +1,27 @@
+.confirmation-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.confirmation-container h1 {
+  color: green;
+}
+
+.confirmation-container p {
+  font-size: 18px;
+}
+
+.confirmation-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.confirmation-container li {
+  margin: 10px 0;
+}
+
+.confirmation-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

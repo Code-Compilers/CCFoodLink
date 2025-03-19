@@ -7,7 +7,15 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+<<<<<<< HEAD
 
+<<<<<<< HEAD
+=======
+import javax.crypto.SecretKey;
+=======
+import java.util.Base64;
+>>>>>>> Bokang
+>>>>>>> 01146cd8acf8a702ae68ab5e383d89dfb8d1eb5e
 import java.util.Date;
 
 @Component

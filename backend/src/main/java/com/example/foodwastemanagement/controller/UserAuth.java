@@ -1,5 +1,6 @@
 package com.example.foodwastemanagement.controller;
 
+import com.example.foodwastemanagement.service.AuthService;
 import com.example.foodwastemanagement.dto.AuthRequest;
 import com.example.foodwastemanagement.dto.AuthResponse;
 import com.example.foodwastemanagement.model.User;

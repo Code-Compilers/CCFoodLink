@@ -1,6 +1,11 @@
 package com.example.foodwastemanagement.service;
 
+<<<<<<< HEAD
 
+=======
+import com.example.foodwastemanagement.dto.AuthRequest;
+import com.example.foodwastemanagement.dto.AuthResponse;
+>>>>>>> 01146cd8acf8a702ae68ab5e383d89dfb8d1eb5e
 import com.example.foodwastemanagement.model.User;
 import com.example.foodwastemanagement.repository.UserRepository;
 import com.example.foodwastemanagement.util.JwtUtil;

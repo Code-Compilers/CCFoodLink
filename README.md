@@ -1,30 +1,30 @@
-# Food Waste & Donation Platform
+# 🌍 **Food Waste & Donation Platform** 🍞
 
-A scalable, secure platform connecting food donors (restaurants, supermarkets) with recipients (NGOs, individuals) to facilitate surplus food donations. The Food Waste & Donation Platform aims to connect surplus food from businesses to those in need, helping reduce food insecurity and waste in South Africa. It includes features for real-time food donations, waste tracking, environmental impact calculations, and educational resources. The platform targets food-insecure individuals, businesses, NGOs, and policymakers, promoting sustainability, efficient food distribution, and policy compliance. The goal is to improve access to food, reduce waste, and support government action on food security.
+A scalable, secure platform connecting food donors (restaurants, supermarkets) with recipients (NGOs, individuals) to facilitate surplus food donations. This platform aims to reduce food insecurity and waste in South Africa by enabling real-time donations, waste tracking, environmental impact calculations, and educational resources.
 
-## Features
-- **Users:** Role-based access register and login.
-- **Register:** registration form.
-- **Login:** login form.
-- **Dashboard:** homepage/welcome page.
-- **Donor:** input to donate to NGOs.
-- **Donatee/Recipient:** input to receive donations.
-- **Food Listings:** Donors and Donatee/Recipient can add/edit/delete food donations.
+## 📋 **Features**
+- **👥 Users:** Role-based access for registration and login.
+- **📝 Register:** Registration form for new users.
+- **🔑 Login:** Login form for returning users.
+- **🏠 Dashboard:** Homepage/welcome page for users.
+- **🍲 Donor:** Input to donate food to NGOs.
+- **🥕 Donatee/Recipient:** Input to receive food donations.
+- **🍽️ Food Listings:** Donors and recipients can add/edit/delete food donations.
 
-## System Architecture
+## 🏗️ **System Architecture**
 - **Frontend:** React.js and CSS
 - **Backend:** Spring Boot (Java 17+) with RESTful APIs
 - **Database:** MySQL 8.x
-  
-## System Components
+
+## 🧩 **System Components**
 ### Frontend
-- **Role Management**
-- **Food Listing & Search**
-- **Responsive UI for Mobile & Desktop**
+- **🔑 Role Management**
+- **🍛 Food Listing & Search**
+- **📱 Responsive UI for Mobile & Desktop**
 
 ### Backend
-- **REST API for User, Food, and Transaction Management**
-- **Security:** Spring Security 
+- **🌐 REST API for User, Food, and Transaction Management**
+- **🔒 Security:** Spring Security
 
 ### Database
 - **Tables:**
@@ -33,9 +33,9 @@ A scalable, secure platform connecting food donors (restaurants, supermarkets) w
   - `transactions`: Logs claims.
 
 ### External Services
-- **Database** for storing user infomation and content.
+- **📊 Database:** For storing user information and content.
 
-## Modules
+## ⚙️ **Modules**
 ### 1. User Management
 - Registration and login.
 
@@ -45,15 +45,15 @@ A scalable, secure platform connecting food donors (restaurants, supermarkets) w
 ### 3. Claim & Transaction
 - Recipients claim food, donors receive notifications, and transaction history is saved.
 
-## Performance & Security
+## 🚀 **Performance & Security**
 - Supports 100 concurrent users.
 
-## Requirements
+## ✅ **Requirements**
 - **FR1:** List surplus food.
 - **FR2:** Real-time donation board.
 - **FR3:** Save food data.
 
-## Installation
+## 🛠️ **Installation**
 1. Clone the repository:
    ```bash
    git clone https://github.com/Code-Compilers/CCFoodLink.git

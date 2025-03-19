@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/core/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/eslint-parser/node_modules/.bin" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/eslint-parser/node_modules/semver" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/helper-compilation-targets/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/plugin-transform-runtime/node_modules/.bin" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@babel/preset-env/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@jest/reporters/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@jest/source-map/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@jest/transform/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@nicolo-ribaudo/eslint-scope-5-internals/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@typescript-eslint/utils/node_modules/eslint-scope" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/@typescript-eslint/utils/node_modules/estraverse" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/ajv-formats/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/ajv-keywords/keywords" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/ajv/lib/dot" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/ajv/lib/dotjs" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/ajv/scripts" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/babel-loader" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/body-parser/node_modules/iconv-lite" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/chokidar/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/clean-css/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/cookie/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/css-minimizer-webpack-plugin/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/css-tree/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/csso/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/escodegen/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint-plugin-import/node_modules/.bin" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint-plugin-import/node_modules/semver" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint-plugin-react/node_modules/semver" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint-scope/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint-webpack-plugin/node_modules/supports-color" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint/node_modules/find-up" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint/node_modules/locate-path" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint/node_modules/p-limit" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/eslint/node_modules/p-locate" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/express/node_modules/cookie" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/fast-glob/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/hpack.js/node_modules/isarray" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/iconv-lite/.github" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/iconv-lite/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/istanbul-lib-instrument/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/istanbul-lib-report/node_modules/make-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/istanbul-lib-source-maps/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/jest-worker/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/postcss-svgo/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/raw-body/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/react-dev-utils/node_modules/find-up" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/react-dev-utils/node_modules/locate-path" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/react-dev-utils/node_modules/p-limit" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/react-dev-utils/node_modules/p-locate" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/resolve-url-loader/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/schema-utils/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/semver/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/semver/functions" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/semver/internal" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/semver/ranges" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/source-map-support/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/static-eval/node_modules/estraverse" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/static-eval/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/webpack-dev-server/client/overlay" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/webpack-dev-server/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/webpack-manifest-plugin/node_modules/source-map" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/webpack/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/whatwg-encoding/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/workbox-build/node_modules/@apideck" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/workbox-build/node_modules/ajv" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/workbox-build/node_modules/json-schema-traverse" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules/workbox-webpack-plugin/node_modules/source-map" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

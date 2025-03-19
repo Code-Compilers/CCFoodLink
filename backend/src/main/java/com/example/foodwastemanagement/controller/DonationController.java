@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/donations")
-@CrossOrigin(origins = "http://localhost:3000") // Allow frontend to access backend
+@CrossOrigin(origins = "http://localhost:3000")
 public class DonationController {
 
     private final DonationRepository donationRepository;

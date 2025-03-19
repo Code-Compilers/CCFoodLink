@@ -6,22 +6,30 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.SecretKey;
 import java.util.Date;
+import io.jsonwebtoken.security.Keys;
+import java.util.Base64;
 
 @Component
 public class JwtUtil {
-    @Value("${app.jwt.secret}")
-    private String secret;
 
-    @Value("${app.jwt.expiration}")
-    private long expiration;
+    private final SecretKey secretKey;
+    private final long expiration;
+
+    public JwtUtil(@Value("${app.jwt.secret}") String secret, @Value("${app.jwt.expiration}") long expiration) {
+        this.secretKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secret)); // Ensure key is correctly encoded
+        this.expiration = expiration;
+    }
 
     public String generateToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .setIssuer("YourAppName")  // Add issuer
+                .setAudience("YourAppUsers")  // Add audience
+                .signWith(secretKey, SignatureAlgorithm.HS512)
                 .compact();
     }
 
@@ -34,8 +42,9 @@ public class JwtUtil {
     }
 
     private Claims getClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(secret)
+        return Jwts.parserBuilder()
+                .setSigningKey(secretKey)
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
     }

@@ -17,19 +17,11 @@ const Navbar = () => {
           <Link to="/">CC Food Link</Link>
         </div>
 
-        {/* Menu icon for mobile view */}
         <div className="menu-icon" onClick={handleMenuToggle}>
           <i className={isMenuOpen ? "fa fa-times" : "fa fa-bars"}></i>
         </div>
 
-        {/* Navbar menu */}
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About Us</Link>
-          </li>
           <li>
             <Link to="/login">Login</Link>
           </li>

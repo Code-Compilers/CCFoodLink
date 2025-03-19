@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Css/Register.css"; // Import CSS for styling
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -66,6 +67,7 @@ const Login = () => {
 
   return (
     <div className="container">
+      <Navbar />
       <div className="form-wrapper">
         <div className="form login">
           <header>Login</header>

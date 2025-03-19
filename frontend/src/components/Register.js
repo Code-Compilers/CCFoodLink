@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Css/Register.css"; // Import the updated CSS file for styling
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -88,6 +89,7 @@ const Register = () => {
 
   return (
     <div className="container">
+      <Navbar />
       <div className="form-wrapper medium-card">
         <div className="form signup">
           <header>Register</header>

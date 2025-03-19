@@ -7,33 +7,22 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-color: #f4f4f4;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  min-height: 100vh; /* Ensure the container takes up full viewport height */
+  width: 100%; /* Make the container take up full width */
+  padding: 20px; /* Add some padding for better spacing */
 }
 
 .form-wrapper {
-  max-width: 800px; 
+  max-width: 900px;
   width: 100%;
   background-color: #ffffff;
   padding: 80px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.medium-card {
-  max-width: 700px; /* Increased width */
 }
 
 header {
@@ -47,6 +36,12 @@ header {
 form {
   margin-top: 20px;
 }
+
+.field {
+  width: 100%;
+  margin-bottom: 20px; /* Add spacing between fields */
+}
+
 .field input,
 .field select,
 .field button {
@@ -110,18 +105,13 @@ form {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 400px) {
+/* Media query for responsiveness (adjust breakpoint as needed) */
+@media screen and (max-width: 600px) {
   .form-wrapper {
-    padding: 20px 10px;
+    padding: 40px 20px; /* Reduce padding on smaller screens */
   }
 
   header {
-    font-size: 26px;
-  }
-
-  .field input,
-  .field select,
-  .field button {
-    font-size: 14px;
+    font-size: 28px;
   }
 }

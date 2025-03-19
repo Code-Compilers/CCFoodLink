@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6621846c-b361-4fb6-aa46-db52604baae0" name="Changes" comment="untracked files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/FoodBg.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Css/HomePage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Css/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Css/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Css/Register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

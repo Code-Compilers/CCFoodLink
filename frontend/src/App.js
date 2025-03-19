@@ -6,14 +6,11 @@ import DonateesDashboard from "./components/DonateesDashboard";
 import Login from "./components/Login";
 import Donations from "./components/Donation";
 import Register from "./components/Register";
-import Navbar from "./components/Navbar";
 import About from "./components/About";
 
 function App() {
   return (
     <div>
-      <Navbar />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="register" element={<Register />} />

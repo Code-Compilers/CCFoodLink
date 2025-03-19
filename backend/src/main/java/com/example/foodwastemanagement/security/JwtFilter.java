@@ -22,17 +22,16 @@ public class JwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
 
-        if (request.getRequestURI().startsWith("/auth/login")){
+        if (request.getRequestURI().startsWith("/auth/login") || request.getRequestURI().startsWith("/auth/register")){
             filterChain.doFilter(request, response);
             return;
         }
 
-        String token = request.getHeader("Authorization");
-        if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
+        String token = extractTokenFromRequest(request);
+        if (token != null) {
             String email = jwtUtil.extractUsername(token);
             if (jwtUtil.validateToken(token, email)) {
-                SecurityContextHolder.getContext().setAuthentication(null);
+                SecurityContextHolder.getContext().setAuthentication(null); // Set authentication here if needed
             }
         }
         filterChain.doFilter(request, response);

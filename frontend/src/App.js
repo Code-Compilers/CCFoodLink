@@ -11,8 +11,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
 <div>
-      <Navbar /> {<Navbar/>}
-     
+      <Navbar />      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="register" element={<Register />} />

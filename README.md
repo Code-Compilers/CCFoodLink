@@ -49,9 +49,12 @@ A scalable, secure platform connecting food donors (restaurants, supermarkets) w
 - Supports 100 concurrent users.
 
 ## ✅ **Requirements**
-- **FR1:** List surplus food.
-- **FR2:** Real-time donation board.
-- **FR3:** Save food data.
+- **FR1:** Register or Login.
+- **FR2:** Donater/Donatee form.
+- **FR3:** List of Donaters information and food.
+- **FR4:** List of Donatee information.
+- **FR5:** Real-time donation board.
+- **FR6:** Save food data.
 
 ## 🛠️ **Installation**
 1. Clone the repository:

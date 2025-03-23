@@ -7,6 +7,9 @@ import Login from "./components/Login";
 import Donations from "./components/Donation";
 import Register from "./components/Register";
 import About from "./components/About";
+import Navbar from "./components/Navbar";
+import DonationConfirmation from "./components/DonationConfirmation";
+import DonorDashboard from "./components/DonorDashboard";
 
 function App() {
   console.log("App component rendered");
@@ -17,11 +20,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
-        <Route path="/donor-dashboard" element={<DonorDashboard />} />
-        <Route
-          path="donation-confirmation"
-          element={<DonationConfirmation />}
-        />
+        <Route path="donor-dashboard" element={<DonorDashboard />} />
+        <Route path="donation-confirmation" element={<DonationConfirmation />}/>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="donatee-dashboard" element={<DonateesDashboard />} />
         <Route path="donation" element={<Donations />} />

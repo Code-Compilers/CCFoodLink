@@ -47,16 +47,16 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Contact Us</h3>
           <ul>
-            <li>Email: info@example.com</li>
-            <li>Phone: +27 123 456 789</li>
-            <li>Address: 123 Food St, Cape Town, South Africa</li>
+            <li>Email: info@CCFoodLink</li>
+            <li>Phone: +27 12 574 7459</li>
+            <li>Address: 123 Food St, Johannesburg, South Africa</li>
           </ul>
         </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
+        <p>&copy; 2025 CCFoodLink. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -5,7 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6621846c-b361-4fb6-aa46-db52604baae0" name="Changes" comment="untracked files">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/controller/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/controller/UserAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/Donation.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/Donation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/DonationLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/DonationLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/foodwastemanagement/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/FoodWasteManagementApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/KeyGeneratorExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/controller/AcceptedDonationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/controller/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/controller/DonateeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/controller/DonationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/dto/AuthRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/dto/AuthResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/dto/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/AcceptedDonation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/Donatee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/Donation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/DonationLog$Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/DonationLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/DonationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/NGO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/User$Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/repository/AcceptedDonationRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/repository/DonateeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/repository/DonationRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/repository/DonationRequestRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/security/JwtFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/service/AuthService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/example/foodwastemanagement/util/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom'; // Add this import statement
 import "../Css/Register.css"; // Import the updated CSS file for styling
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.js";
 
 const Register = () => {
   const [username, setUsername] = useState("");
